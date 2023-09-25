@@ -39,12 +39,12 @@ def buildFigure(dataframe, user_ip):
         in_percentage = row['Count'] / (row['Count'] + row['CountOut'])
         if in_percentage < .5:
             red=255
-            green = 255* ((in_percentage)*2)
+            blue = 255* ((in_percentage)*2)
         else:
-            green=255
+            blue=255
             red=255 * (1-in_percentage)
         
-        return 'rgb(' + str(red) + ', ' + str(green) + ', 0)'
+        return 'rgb(' + str(red) + ', 0, ' + str(blue) + ')'
 
     def get_count_out(row):
         try:
