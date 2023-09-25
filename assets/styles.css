@@ -1,0 +1,83 @@
+/* styles.css */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333; /* Add background color to your header */
+    color: #fff; /* Set text color */
+    height: 100px; /* Adjust header height as needed */
+}
+
+.logo {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: top; /* Center the content vertically */
+    margin-top: 20px; /* Add spacing between logo and app title */
+}
+
+.button {
+    width: 50%;
+    height: 60px;
+    line-height: 60px;
+    border-width: 1px;
+    border-style: dashed;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+/* styles.css */
+.upload-button {
+    width: 50%; /* Set the button width to half the page width */
+    margin: 0 auto; /* Center the button horizontally */
+    height: 60px;
+    line-height: 45px;
+    border-width: 1px;
+    border-style: dashed;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #77d4fc;
+    font-family: 'Roboto';
+}
+
+.large {
+    width: 70%;
+    height: 5vh;
+}
+
+.invis {
+    display:none;
+}
+
+.vis {
+    display:flex
+}
+
+.map-container {
+    /* justify-content: center;
+    align-items: center; */
+    margin: 0 auto;
+    width: 100%; /* Set the map width to 80% of the screen */
+    height: 97vh; /* Set the map height to 80% of the viewport height */
+}
+
+.introduction-text {
+    font-size: 21px;
+    max-width: 1000px;
+    margin: 20px auto;
+    text-align: left;
+    font-family: 'Roboto';
+}
+
+.upload-button-large {
+    width: 50%;
+    margin: 20px auto;
+}
+
+.upload-button-small {
+    width: 20%; /* Adjust the size for small button as needed */
+    margin: 20px auto;
+}
