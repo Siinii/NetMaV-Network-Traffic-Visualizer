@@ -1,6 +1,5 @@
 import dash
 from dash import dcc
-
 from dash import html
 from dash.dependencies import Input, Output
 import plotly.express as px
@@ -21,14 +20,10 @@ app.layout = html.Div([
   
     html.Link(
         rel='stylesheet',
-        href='/assets/styles.css'  # Path to your CSS file
+        href='/assets/styles.css' 
     ),
     html.Link(rel='icon', href='/assets/favicon.ico'),
 
-
-    # html.Div([
-    #     html.H1("Upload a CSV File"),
-    # ], className='header'),
 
     html.Div([
         html.Img(
@@ -45,13 +40,15 @@ app.layout = html.Div([
         children=html.Div([
             'Drag and Drop or Select a CSV File'
         ], style = {
-            'font-size': '22px',
+            'font-size': '21px',
             'font-weight': 'bold'
         }),
-        className='upload-button large',
+        className='upload-button',
         multiple=False  # Allow only one file to be uploaded at a time
     ),
     ]),
+
+    html.Button('Demo with Test Traffic File', id='demo', className='button', n_clicks=0),
 
      html.Div([
         html.Div([
@@ -90,13 +87,28 @@ app.layout = html.Div([
     Output('map', 'className'),
     Output('intro-text', 'className'),
     Output('upload-data', 'className'),
-    Output('mapLogo', 'className')],
-    Input('upload-data', 'contents'),
+    Output('mapLogo', 'className'),
+    Output('demo', 'className')],
+    [Input('upload-data', 'contents'),
+    Input('demo', 'n_clicks')],
     prevent_initial_call=True
 )
-def update_map(contents):
+def update_map(contents, n_clicks):
     if contents is None:
-        return {}
+        if n_clicks > 0:
+            df=pd.read_csv("TestWireSharkCapture.csv")
+
+            user_ip = "10.0.0.0"
+            try:
+                user_ip = request.headers['X-Real-IP']
+            except:
+                pass
+            print("user ip is: ", user_ip)
+
+            # Create the Plotly map
+            fig = buildFigure(df, str(user_ip))
+            return fig, 'vis map-container', 'invis intro-text', 'invis upload-button large', 'invis logo', 'invis button'
+        return {}, 'invis map-container', 'vis intro-text', 'vis upload-button large', 'vis logo', 'vis button'
     else:
         # Read the uploaded CSV file
 
@@ -104,21 +116,16 @@ def update_map(contents):
         decoded = base64.b64decode(content_string)
         #validate this later
         df = pd.read_csv(io.StringIO(decoded.decode('utf-8')))
-        user_ip = request.remote_addr
+        user_ip = "10.0.0.0"
+        try:
+            user_ip = request.headers['X-Real-IP']
+        except:
+            pass
         print("user ip is: ", user_ip)
 
         # Create the Plotly map
         fig = buildFigure(df, str(user_ip))
-        return fig, 'vis map-container', 'invis intro-text', 'invis upload-button large', 'invis logo'
-
-# @app.callback(
-#     Output('map', 'style'),
-#     Input('upload-data', 'contents')
-# )
-# def update_style(contents):
-#     # ...
-#     print("entered update_style")
-#     return {'display': 'flex', 'width':'100%', 'height': '100%'}
+        return fig, 'vis map-container', 'invis intro-text', 'invis upload-button large', 'invis logo', 'invis button'
 
 if __name__ == '__main__':
     app.run_server(debug=True)

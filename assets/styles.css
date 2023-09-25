@@ -16,23 +16,29 @@
 }
 
 .button {
-    width: 50%;
-    height: 60px;
-    line-height: 60px;
+    display:flex;
+    width: 50%; /* Set the button width to half the page width */
+    margin: 0 auto; /* Center the button horizontally */
+    height: 25px;
+    line-height: 25px;
     border-width: 1px;
     border-style: dashed;
     border-radius: 5px;
     text-align: center;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    background-color: #77d4fc;
+    font-family: 'Roboto';
+    font-size: 21px;
+    font-weight: bold;
 }
 
 /* styles.css */
 .upload-button {
     width: 50%; /* Set the button width to half the page width */
     margin: 0 auto; /* Center the button horizontally */
-    height: 60px;
-    line-height: 45px;
+    height: 25px;
+    line-height: 25px;
     border-width: 1px;
     border-style: dashed;
     border-radius: 5px;
@@ -44,8 +50,8 @@
 }
 
 .large {
-    width: 70%;
-    height: 5vh;
+    width: 50%;
+    height: 4vh;
 }
 
 .invis {

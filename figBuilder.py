@@ -5,6 +5,7 @@ import plotly.graph_objs as go
 import os
 
 
+
 def buildFigure(dataframe, user_ip):
     api_key = os.getenv("SECRET_KEY")
     ipMap = {}
@@ -22,6 +23,7 @@ def buildFigure(dataframe, user_ip):
         nonlocal homeCoordinates
         nonlocal homeCity
         nonlocal homeCountry
+        print("User IP is: ", user_ip)
         try:
             response = requests.get('https://api.ipgeolocation.io/ipgeo?apiKey=' + api_key + '&ip=' + str(user_ip)+ '&fields=latitude,longitude,city,country_name').json()
             homeCoordinates = (round(float(response.get("latitude")), 1), round(float(response.get("longitude")), 1))
@@ -142,9 +144,9 @@ def buildFigure(dataframe, user_ip):
         dict(
             source="/assets/NetMaV_Logo.jpg",
             xref="paper", yref="paper",
-            x=1, y=0.85,
+            x=1, y=1,
             sizex=0.2, sizey=0.2,
-            xanchor="right", yanchor="bottom"
+            xanchor="right", yanchor="top"
         )
     )
 
