@@ -70,8 +70,14 @@
     height: 97vh; /* Set the map height to 80% of the viewport height */
 }
 
+.copyright {
+    text-align: center; /* Center-align the copyright message */
+    margin-bottom: 10px; /* Add spacing between the message and icons */
+    color: #777; /* Text color for the copyright message */
+}
+
 .introduction-text {
-    font-size: 21px;
+    font-size: 20px;
     max-width: 1000px;
     margin: 20px auto;
     text-align: left;
@@ -86,4 +92,39 @@
 .upload-button-small {
     width: 20%; /* Adjust the size for small button as needed */
     margin: 20px auto;
+}
+
+.footer{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    bottom:0;
+    width:98%;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0; /* Place the icons at the bottom */
+    left: 34%; /* Center horizontally on the left side */
+    width: 28%; /* Full width */
+    margin-top: 20px;
+    margin-bottom:0; /* Adjust the margin as needed */
+    background-color: #007BFF;
+}
+
+.social-icons a {
+    color: rgb(255, 255, 255);  /* Icon color */
+    font-size: 36px;  /* Icon size */
+    margin: 0 10px;  /* Adjust spacing between icons as needed */
+    margin-bottom:0; /* Adjust the margin as needed */
+
+}
+
+.social-icons a:hover {
+    color: #000000;  /* Icon color on hover */
+    margin-bottom:0; /* Adjust the margin as needed */
+
 }

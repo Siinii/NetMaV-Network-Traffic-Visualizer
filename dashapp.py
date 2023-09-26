@@ -9,7 +9,16 @@ import io
 from figBuilder import *
 from flask import request
 
-app = dash.Dash(__name__)
+external_stylesheets = [
+{
+    'href': 'https://use.fontawesome.com/releases/v5.8.1/css/all.css',
+    'rel': 'stylesheet',
+    'integrity': 'sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf',
+    'crossorigin': 'anonymous'
+}
+]
+
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 # Define the layout of your app
 app.layout = html.Div([
@@ -17,6 +26,8 @@ app.layout = html.Div([
         rel='stylesheet',
         href='https://fonts.googleapis.com/css?family=Roboto'
     ),
+
+ 
   
     html.Link(
         rel='stylesheet',
@@ -79,6 +90,29 @@ app.layout = html.Div([
         )],
         fullscreen=True,  # Show the loading spinner over the whole page
     ),
+
+    html.Footer([
+#         html.Link(
+#     rel='stylesheet',
+#     href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+# ),
+        html.Div([
+    html.A([
+        html.I(className='fab fa-github'),
+    ], href='https://github.com/Siinii', target='_blank'),
+
+        html.P('© 2023 Blaze Ezlakowski. All rights reserved.', className="copyright", style={
+            'color': 'white'
+        }),
+
+
+    html.A([
+        html.I(className='fab fa-linkedin'),
+    ], href='https://www.linkedin.com/in/blaze-ezlakowski', target='_blank'),
+], className='social-icons')
+], className="footer"),
+
+
 ],)
 
 # Define callback to update the map
