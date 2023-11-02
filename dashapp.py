@@ -130,8 +130,8 @@ app.layout = html.Div([
 def update_map(contents, n_clicks):
     if contents is None:
         if n_clicks > 0:
-            df = pd.read_csv('~/NetMaV-Network-Traffic-Visualizer/TestWireSharkCapture.csv')
-            #df=pd.read_csv("TestWireSharkCapture.csv")
+            #df = pd.read_csv('~/NetMaV-Network-Traffic-Visualizer/TestWireSharkCapture.csv')
+            df=pd.read_csv("TestWireSharkCapture.csv")
 
             user_ip = "10.0.0.0"
             try:

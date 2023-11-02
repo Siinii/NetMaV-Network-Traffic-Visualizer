@@ -85,7 +85,7 @@ def buildFigure(dataframe, user_ip):
             return
         else:
             print(max(max_width * ((row['Count']+row['CountOut']) / max_count), min_width))
-            fig.add_trace(go.Scattermapbox(
+            fig.add_trace(go.Scattergeo(
         lon=[row['Source_Coord'][1], row['Dest_Coord'][1]],  # Longitude values
         lat=[row['Source_Coord'][0], row['Dest_Coord'][0]],  # Latitude values
         mode="lines+markers",
@@ -120,7 +120,7 @@ def buildFigure(dataframe, user_ip):
     max_count = (pair_counts['Count'] + pair_counts['CountOut']).max()
 
 
-    fig = go.Figure(go.Scattermapbox(
+    fig = go.Figure(go.Scattergeo(
         mode = "markers+lines",
         ))
 
